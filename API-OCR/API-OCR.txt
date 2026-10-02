@@ -1,0 +1,3 @@
+API_1 (Mặt trước CCCD): curl.exe -X POST "http://10.10.6.29:8000/api/cccd-front" -F "file=@samples/can-cuoc.jpg" -F "engine=vietocr"
+API_2 (Mặt sau CCCD): curl.exe -X POST "http://10.10.6.29:8000/api/cccd-back" -F "file=@samples/CCCD_Sau.jpg" -F "engine=vietocr"
+API_3 (GCN_SDĐ - Mẫu số 1): curl.exe -X POST "http://10.10.6.29:8000/api/land-certificate" -F "file=@samples/GCN.jpg" -F "engine=vietocr"

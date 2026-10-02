@@ -1,0 +1,26 @@
+# for training
+pretrain: https://huggingface.co/datasets/qadeptrai123/aic26-ocr/resolve/main/models/ppocrv5-vietocr/vietocr_vgg_transformer.pth
+
+# url or local path (predict) — HF mirror preferred; vocr.vn often fails DNS
+weights: https://huggingface.co/datasets/qadeptrai123/aic26-ocr/resolve/main/models/ppocrv5-vietocr/vietocr_vgg_transformer.pth
+
+backbone: vgg19_bn
+cnn:
+    pretrained: True
+    # pooling stride size
+    ss:
+        - [2, 2]
+        - [2, 2]
+        - [2, 1]
+        - [2, 1]
+        - [1, 1]         
+    # pooling kernel size 
+    ks:
+        - [2, 2]
+        - [2, 2]
+        - [2, 1]
+        - [2, 1]
+        - [1, 1]
+    # dim of ouput feature map
+    hidden: 256
+

@@ -1,0 +1,15 @@
+API_1 (Mặt trước CCCD): curl.exe -X POST "http://10.10.6.29:8000/api/cccd-front" -F "file=@samples/can-cuoc.jpg" -F "engine=vietocr"
+API_2 (Mặt sau CCCD): curl.exe -X POST "http://10.10.6.29:8000/api/cccd-back" -F "file=@samples/CCCD_Sau.jpg" -F "engine=vietocr"
+API_3 (GCN_SDĐ - Mẫu số 1): curl.exe -X POST "http://10.10.6.29:8000/api/land-certificate" -F "file=@samples/GCN-1.jpg" -F "engine=vietocr"
+API_4 (GCN_SDĐ - Mẫu số 2, ≥2 ảnh hoặc 1 PDF ≥2 trang): curl.exe -X POST "http://10.10.6.29:8000/api/land-certificate-2" -F "file=@samples/GCN_2-23.jpg" -F "file=@samples/GCN_2-14.jpg" -F "engine=vietocr"
+
+API_5 (GCN_SDĐ - Mẫu số 3): curl.exe -X POST "http://10.10.6.29:8000/api/land-certificate-3" -F "file=@samples/GCN-3.png" -F "engine=vietocr"
+
+curl.exe -X POST "http://10.10.6.29:8000/api/cccd-front" -F "file=@samples/CC_truoc.jpg" -F "engine=vietocr"
+curl.exe -X POST "http://10.10.6.29:8000/api/cccd-front" -F "file=@samples/CC_truoc1.jpg" -F "engine=vietocr"
+curl.exe -X POST "http://10.10.6.29:8000/api/cccd-back" -F "file=@samples/CCCD_Sau.jpg" -F "engine=vietocr"
+curl.exe -X POST "http://10.10.6.29:8000/api/cccd-back" -F "file=@samples/CCCD_Sau1.jpg" -F "engine=vietocr"
+
+
+curl.exe -X POST "http://10.10.6.29:8000/api/land-certificate-2" -F "file=@samples/Test.pdf" -F "engine=vietocr"
+curl.exe -X POST "http://10.10.6.29:8000/api/land-certificate" -F "file=@samples/Test1.pdf" -F "engine=vietocr"

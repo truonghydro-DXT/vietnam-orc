@@ -1,0 +1,135 @@
+
+        public Guid Id { get; set; }
+
+        /// <summary>Đã ký giáp ranh hay chưa</summary>
+        public bool IsBoundarySigned { get; set; }
+        
+        /// <summary>Tài liệu đính kèm dạng danh sách object</summary>
+        [Column(TypeName = "jsonb")]
+        public List<jsonb_ParcelOwnerAttachment> Attachments { get; set; } = new();
+        
+        /// <summary>Toạ độ đại diện của thửa đất (chỉ set khi tạo)</summary>
+        [Column(TypeName = "jsonb")]
+        public jsonb_ParcelCoordinate Coordinate { get; set; }
+
+        /// <summary>ID dự án thuộc về</summary>
+        public Guid ProjectId { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime CreatedOnDate { get; set; } = DateTime.Now;
+        public Guid CreatedByUserId { get; set; }
+        public DateTime? LastModifiedOnDate { get; set; }
+
+        // ==========================================
+        // Thông tin thửa đất
+        // ==========================================
+        /// <summary>Số tờ bản đồ</summary>
+        public string SheetNumber { get; set; }
+        /// <summary>Số thửa</summary>
+        public string ParcelNumber { get; set; }
+        /// <summary>Số thửa tạm</summary>
+        public string TempParcelNumber { get; set; }
+        /// <summary>Diện tích (m2)</summary>
+        public double? Area { get; set; }
+        /// <summary>Diện tích pháp lý (m2)</summary>
+        public double? LegalArea { get; set; }
+        /// <summary>Địa chỉ chi tiết của thửa đất</summary>
+        public string DetailedAddress { get; set; }
+        /// <summary>Địa chỉ (Xã, Huyện, Tỉnh)t</summary>
+        public string ParcelAddress { get; set; } 
+        /// <summary>Loại giấy tờ hiện có của thửa đất</summary>
+        public string CurrentDocumentType { get; set; }
+        /// <summary>Diện tích trên giấy tờ</summary>
+        public double? DocumentArea { get; set; }
+        
+        // ==========================================
+        // Mục đích sử dụng 1
+        // ==========================================
+        /// <summary>Mục đích sử dụng đất 1 theo kiểm kê</summary>
+        public string LandUse1_KK { get; set; }
+        /// <summary>Mục đích sử dụng đất 1 theo giấy chứng nhận</summary>
+        public string LandUse1_GCN { get; set; }
+        /// <summary>Diện tích sử dụng đất 1</summary>
+        public double? LandUse1_Area { get; set; }
+        /// <summary>Diện tích pháp lý sử dụng đất 1</summary>
+        public double? LandUse1_LegalArea { get; set; }
+        /// <summary>Nguồn gốc sử dụng 1<summary/>
+        public string? LandUseOrgin1 { get; set; }
+
+        // ==========================================
+        // Mục đích sử dụng 2
+        // ==========================================
+        /// <summary>Mục đích sử dụng đất 2 theo kiểm kê</summary>
+        public string LandUse2_KK { get; set; }
+        /// <summary>Mục đích sử dụng đất 2 theo giấy chứng nhận</summary>
+        public string LandUse2_GCN { get; set; }
+        /// <summary>Diện tích sử dụng đất 2</summary>
+        public double? LandUse2_Area { get; set; }
+        /// <summary>Diện tích pháp lý sử dụng đất 2</summary>
+        public double? LandUse2_LegalArea { get; set; }
+
+        
+        /// <summary>Mã chủ</summary>
+        public string OwnerCode { get; set; }
+
+        /// <summary>Đối tượng sử dụng (ví dụ: Cá nhân, Tổ chức...)</summary>
+        public string LandType { get; set; }
+        
+        // ==========================================
+        // CHỦ SỞ HỮU (Chủ)
+        // ==========================================
+        /// <summary>Mã xã của Chủ sở hữu</summary>
+        public string OwnerCommuneCode { get; set; }
+        /// <summary>Tên chủ hộ</summary>
+        [Required]
+        public string OwnerName { get; set; } = null!;
+        public int? OwnerBirthYear { get; set; }
+        /// <summary>Giới tính Chủ sở hữu</summary>
+        public string OwnerGender { get; set; }
+        /// <summary>Loại giấy tờ của Chủ sở hữu</summary>
+        public string OwnerDocumentType { get; set; }
+        /// <summary>Số căn cước công dân</summary>
+        public string CitizenId { get; set; }
+        /// <summary>Ngày cấp giấy tờ Chủ sở hữu</summary>
+        public DateTime? OwnerIssueDate { get; set; }
+        /// <summary>Nơi cấp giấy tờ Chủ sở hữu</summary>
+        public string OwnerIssuePlace { get; set; }
+        /// <summary>Địa chỉ thường trú Chủ sở hữu</summary>
+        public string Address { get; set; }
+        /// <summary>Địa chỉ chi tiết Chủ sở hữu</summary>
+        public string OwnerDetailedAddress { get; set; }
+
+        // ==========================================
+        // CHỦ SỞ HỮU (Vợ/Chồng)
+        // ==========================================
+        /// <summary>Mã xã của Vợ/Chồng</summary>
+        public string SpouseCommuneCode { get; set; }
+        /// <summary>Họ tên Vợ/Chồng</summary>
+        public string SpouseFullName { get; set; }
+        /// <summary>Năm sinh Vợ/Chồng</summary>
+        public int? SpouseBirthYear { get; set; }
+        /// <summary>Giới tính Vợ/Chồng</summary>
+        public string SpouseGender { get; set; }
+        /// <summary>Loại giấy tờ của Vợ/Chồng</summary>
+        public string SpouseDocumentType { get; set; }
+        /// <summary>Số căn cước công dân Vợ/Chồng</summary>
+        
+        public string SpouseCitizenId { get; set; }
+        /// <summary>Ngày cấp giấy tờ Vợ/Chồng</summary>
+        public DateTime? SpouseIssueDate { get; set; }
+        /// <summary>Nơi cấp giấy tờ Vợ/Chồng</summary>
+        public string SpouseIssuePlace { get; set; }
+        /// <summary>Địa chỉ thường trú Vợ/Chồng</summary>
+        public string SpousePermanentAddress { get; set; }
+        /// <summary>Địa chỉ chi tiết Vợ/Chồng</summary>
+        public string SpouseDetailedAddress { get; set; }
+
+        // ==========================================
+        // THÔNG TIN CŨ (OldInfo)
+        // ==========================================
+        /// <summary>Số tờ bản đồ cũ</summary>
+        public decimal? PreviousSheetNumber { get; set; }
+        /// <summary>Số thửa cũ</summary>
+        public decimal? PreviousParcelNumber { get; set; }
+        /// <summary>Diện tích cũ</summary>
+        public decimal? PreviousArea { get; set; }
+    
